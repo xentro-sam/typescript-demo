@@ -1,5 +1,5 @@
-const userService = require('../services/users.services');
-const HTTPError = require('../utils/errors/HTTPError');
+import userService from '../services/users.services.js';
+import HTTPError from '../utils/errors/HTTPError.js';
 
 const getUsers = async (req, res) => {
   try {
@@ -63,7 +63,7 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   getUsers,
   getUser,
   createUser,

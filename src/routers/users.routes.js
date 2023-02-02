@@ -1,13 +1,13 @@
-const express = require('express');
-const Todo = require('../controllers/users.controllers');
+import express from 'express';
+import { getUsers, createUser, getUser } from '../controllers/users.controllers.js';
 
 const UserRoutes = express.Router();
 
 UserRoutes.route('/users')
-  .get(Todo.getUsers)
-  .post(Todo.createUser);
+  .get(getUsers)
+  .post(createUser);
 
 UserRoutes.route('/users/:id')
-  .get(Todo.getUser)
+  .get(getUser)
 
-module.exports = UserRoutes;
+export default UserRoutes;

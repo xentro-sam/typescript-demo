@@ -1,7 +1,7 @@
-const { v4: uuidv4 } = require('uuid');
-const Joi = require('joi');
-const { db } = require('../models');
-const HTTPError = require('../utils/errors/HTTPError');
+import { v4 as uuidv4 } from 'uuid';
+import Joi from 'joi';
+import db  from '../models/index.js';
+import HTTPError from '../utils/errors/HTTPError.js';
 
 const schema = Joi.object({
   id: Joi.string().uuid().required(),
@@ -44,8 +44,10 @@ const getUser = async (id) => {
   return user;
 };
 
-module.exports = {
+const userService = {
   createUser,
   getUsers,
   getUser,
 };
+
+export default userService;

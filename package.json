@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "commonjs",
+  "engines": {
+    "node": "19.4.0",
+    "npm": "9.2.0"
+  },
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "test": "jest"

@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-const UserRoutes = require('./src/routers/users.routes');
+import UserRoutes from './src/routers/users.routes.js';
 const PORT = 3000;
 
 app.use(express.json());
