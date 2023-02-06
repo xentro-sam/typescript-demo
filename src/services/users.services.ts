@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import Joi from 'joi';
-import db  from '../models/index.js';
+import db from '../models/index.js';
 import HTTPError from '../utils/errors/HTTPError.js';
+import { User, ReqUser } from '../../types';
 
 const schema = Joi.object({
   id: Joi.string().uuid().required(),
@@ -13,12 +14,12 @@ const validateId = Joi.object({
   id: Joi.string().uuid().required()
 });
 
-const createUser = async (user) => {
+const createUser = async (user: ReqUser) => {
   if(Array.isArray(user)) {
     throw new HTTPError('Input is not in JSON', 400);
   }
   const id = uuidv4();
-  const newUser = {
+  const newUser: User = {
     ...user,
     id,
   }
@@ -35,9 +36,9 @@ const getUsers = async () => {
   return users;
 };
 
-const getUser = async (id) => {
+const getUser = async (id: string) => {
   await validateId.validateAsync({ id });
-  const user = db.filter((user) => user.id === id);
+  const user = db.filter((user: {id: string}) => user.id === id);
   if (!user.length) {
     throw new HTTPError(`User with id ${id} was not found`, 404);
   }
