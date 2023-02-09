@@ -1,7 +1,7 @@
 import userService from '../services/users.services.js';
 import HTTPError from '../utils/errors/HTTPError.js';
 import { Request, Response } from 'express';
-import { ReqUser } from '../../types';
+import { ReqUser } from '../types';
 
 const getUsers = async (req: Request, res: Response) => {
   try {

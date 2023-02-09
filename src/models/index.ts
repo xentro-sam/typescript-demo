@@ -1,4 +1,4 @@
-import { DbArray } from '../../types';
+import { DbArray } from '../types';
 
 const db: DbArray = [];
 

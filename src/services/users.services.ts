@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Joi from 'joi';
 import db from '../models/index.js';
 import HTTPError from '../utils/errors/HTTPError.js';
-import { User, ReqUser } from '../../types';
+import { User, ReqUser } from '../types';
 
 const schema = Joi.object({
   id: Joi.string().uuid().required(),
